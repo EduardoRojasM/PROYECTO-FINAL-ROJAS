@@ -29,7 +29,7 @@ async function imagesTotalViewsCounter() {
 
 async function likeTotalCounter() {
     try {
-        const result = await Image.aggregate([{
+        const result =  Image.aggregate([{
             $group: {
                 _id: '1',
                 likesTotal: { $sum: '$likes' }
@@ -41,7 +41,7 @@ async function likeTotalCounter() {
     } catch (error) {
         return 0;
     }
-}   
+}
 
 module.exports = async () =>{
     const result = await Promise.all([  

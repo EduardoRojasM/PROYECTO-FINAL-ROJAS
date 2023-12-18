@@ -1,16 +1,25 @@
 const {Comment , Image } = require('../models')
-
-module.exports  = {
-    async newest () {
-        const comments = await Comment.find()
+module.exports = {
+    newest() {
+        return Comment.find()
             .limit(5)
-            .sort({timestamp : -1}) ;
+            .sort({ timestamp: -1 })
+            .then((comments) => {
+                const imagePromises = comments.map((comment) =>
+                    Image.findOne({ _id: comment.image_id })
+                );
 
-        for(const comment of comments){
-            const image = await Image.findOne({_id : comment.image_id});
-            comment.image = image ;
-        }
+                return Promise.all(imagePromises).then((images) => {
+                    comments.forEach((comment, index) => {
+                        comment.image = images[index];
+                    });
 
-        return comments ;
-    }
-}
+                    return comments;
+                });
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                return [];
+            });
+    },
+};

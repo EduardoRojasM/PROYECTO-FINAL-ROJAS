@@ -5,7 +5,7 @@ Se aplicó SonarQube en el proyecto existente
 
 ## Composing Methods
 Se mejoró el método LikeTotalCounter, para eliminar el smell de redundancia de "await"
-![Refactoring1](/READMEFILES/refact1.png)
+![Refactoring1](/READMEFILES/refact1.jpeg)
 ## Organizing Data
 La clase encargada de la generación de comentarios fue reestructurada para eliminar la redundancia de "awaits"
-![Refactoring2](/READMEFILES/refact2.png)
+![Refactoring2](/READMEFILES/refact2.jpeg)

@@ -1,7 +1,7 @@
-# PROYECTO FINAL FORK ROJAS MIRANDA
+# PROYECTO FINAL FORK EDUARDO ROJAS MIRANDA
 
 Se aplicó SonarQube en el proyecto existente 
-# REFACTORINS APLICADOS
+# REFACTORINGS APLICADOS
 
 ## Composing Methods
 Se mejoró el método LikeTotalCounter, para eliminar el smell de redundancia de "await"
